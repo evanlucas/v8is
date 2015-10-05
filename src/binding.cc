@@ -58,8 +58,7 @@ using Nan::Set;
   V(IsInt32Array, isInt32Array)               \
   V(IsFloat32Array, isFloat32Array)           \
   V(IsFloat64Array, isFloat64Array)           \
-  V(IsDataView, isDataView)                   \
-  V(IsSharedArrayBuffer, isSharedArrayBuffer)
+  V(IsDataView, isDataView)
 
 #define V(Name, S) METHOD(S, Name)
   METHOD_NAMES(V)
