@@ -37,7 +37,6 @@ using Nan::Set;
   V(IsBooleanObject, isBooleanObject)         \
   V(IsNumberObject, isNumberObject)           \
   V(IsStringObject, isStringObject)           \
-  V(IsSymbolObject, isSymbolObject)           \
   V(IsRegExp, isRegExp)                       \
   V(IsGeneratorFunction, isGeneratorFunction) \
   V(IsGeneratorObject, isGeneratorObject)     \
