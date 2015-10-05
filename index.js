@@ -281,10 +281,3 @@ exports.isDateView = function isDataView(obj) {
 
   return binding.isDataView(obj)
 }
-
-exports.isSharedArrayBuffer = function isSharedArrayBuffer(obj) {
-  if (arguments.length < 1)
-    throw new Error('argument is required')
-
-  return binding.isSharedArrayBuffer(obj)
-}
