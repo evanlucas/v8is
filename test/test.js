@@ -230,6 +230,38 @@ test('isArrayBufferView', function(t) {
   t.end()
 })
 
+test('isTypedArray', function(t) {
+  t.strictEqual(v8is.isTypedArray(new Uint8Array([])), true)
+  t.strictEqual(v8is.isTypedArray([]), false)
+  t.end()
+})
+
+test('isUint8Array', function(t) {
+  t.strictEqual(v8is.isUint8Array(new Uint8Array([])), true)
+  t.strictEqual(v8is.isUint8Array([]), false)
+  t.end()
+})
+
+test('isInt8Array', function(t) {
+  t.strictEqual(v8is.isInt8Array(new Int8Array([])), true)
+  t.strictEqual(v8is.isInt8Array(new Uint8Array([])), false)
+  t.strictEqual(v8is.isInt8Array([]), false)
+  t.end()
+})
+
+test('isUint16Array', function(t) {
+  t.strictEqual(v8is.isUint16Array(new Uint16Array([])), true)
+  t.strictEqual(v8is.isUint16Array([]), false)
+  t.end()
+})
+
+test('isInt16Array', function(t) {
+  t.strictEqual(v8is.isInt16Array(new Int16Array([])), true)
+  t.strictEqual(v8is.isInt16Array(new Uint16Array([])), false)
+  t.strictEqual(v8is.isInt16Array([]), false)
+  t.end()
+})
+
 test('required arguments', function(t) {
   const funcs = getFunctions()
   funcs.forEach(function(func) {
