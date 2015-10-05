@@ -275,7 +275,7 @@ exports.isFloat64Array = function isFloat64Array(obj) {
   return binding.isFloat64Array(obj)
 }
 
-exports.isDateView = function isDataView(obj) {
+exports.isDataView = function isDataView(obj) {
   if (arguments.length < 1)
     throw new Error('argument is required')
 
