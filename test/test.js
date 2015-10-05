@@ -289,6 +289,12 @@ test('isFloat64Array', function(t) {
   t.end()
 })
 
+test('isDataView', function(t) {
+  t.strictEqual(v8is.isDataView(new DataView(new ArrayBuffer(0))), true)
+  t.strictEqual(v8is.isDataView([]), false)
+  t.end()
+})
+
 test('required arguments', function(t) {
   const funcs = getFunctions()
   funcs.forEach(function(func) {
