@@ -262,6 +262,33 @@ test('isInt16Array', function(t) {
   t.end()
 })
 
+test('isUint32Array', function(t) {
+  t.strictEqual(v8is.isUint32Array(new Uint32Array([])), true)
+  t.strictEqual(v8is.isUint32Array([]), false)
+  t.end()
+})
+
+test('isInt32Array', function(t) {
+  t.strictEqual(v8is.isInt32Array(new Int32Array([])), true)
+  t.strictEqual(v8is.isInt32Array(new Uint32Array([])), false)
+  t.strictEqual(v8is.isInt32Array([]), false)
+  t.end()
+})
+
+test('isFloat32Array', function(t) {
+  t.strictEqual(v8is.isFloat32Array(new Float32Array([])), true)
+  t.strictEqual(v8is.isFloat32Array(new Uint32Array([])), false)
+  t.strictEqual(v8is.isFloat32Array([]), false)
+  t.end()
+})
+
+test('isFloat64Array', function(t) {
+  t.strictEqual(v8is.isFloat64Array(new Float64Array([])), true)
+  t.strictEqual(v8is.isFloat64Array(new Uint32Array([])), false)
+  t.strictEqual(v8is.isFloat64Array([]), false)
+  t.end()
+})
+
 test('required arguments', function(t) {
   const funcs = getFunctions()
   funcs.forEach(function(func) {
