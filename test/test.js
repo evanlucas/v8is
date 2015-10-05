@@ -91,6 +91,62 @@ test('isBoolean', function(t) {
   t.end()
 })
 
+test('isNumber', function(t) {
+  t.strictEqual(v8is.isNumber(1), true)
+  t.strictEqual(v8is.isNumber('1'), false)
+  t.strictEqual(v8is.isNumber(true), false)
+  t.end()
+})
+
+test('isInt32', function(t) {
+  t.strictEqual(v8is.isInt32(1), true)
+  t.strictEqual(v8is.isInt32(-1), true)
+  t.strictEqual(v8is.isInt32('1'), false)
+  t.end()
+})
+
+test('isUint32', function(t) {
+  t.strictEqual(v8is.isUint32(1), true)
+  t.strictEqual(v8is.isUint32(-1), false)
+  t.strictEqual(v8is.isUint32('1'), false)
+  t.end()
+})
+
+test('isDate', function(t) {
+  t.strictEqual(v8is.isDate(new Date()), true)
+  t.strictEqual(v8is.isDate(Date.now()), false)
+  t.end()
+})
+
+test('isArgumentsObject', function(t) {
+  ;(function() {
+    t.strictEqual(v8is.isArgumentsObject(arguments), true)
+  })()
+  t.strictEqual(v8is.isArgumentsObject([]), false)
+  t.end()
+})
+
+test('isBooleanObject', function(t) {
+  t.strictEqual(v8is.isBooleanObject(true), false)
+  t.strictEqual(v8is.isBooleanObject(false), false)
+  t.strictEqual(v8is.isBooleanObject(new Boolean(true)), true)
+  t.strictEqual(v8is.isBooleanObject(new Boolean(false)), true)
+  t.strictEqual(v8is.isBooleanObject(new Boolean(0)), true)
+  t.end()
+})
+
+test('isNumberObject', function(t) {
+  t.strictEqual(v8is.isNumberObject(new Number(1)), true)
+  t.strictEqual(v8is.isNumberObject(1), false)
+  t.end()
+})
+
+test('isStringObject', function(t) {
+  t.strictEqual(v8is.isStringObject(''), false)
+  t.strictEqual(v8is.isStringObject(new String('')), true)
+  t.end()
+})
+
 test('required arguments', function(t) {
   const funcs = getFunctions()
   funcs.forEach(function(func) {
