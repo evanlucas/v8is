@@ -1,0 +1,27 @@
+{
+  "name": "v8is",
+  "version": "1.0.0",
+  "description": "Type checking on all sorts of values/objects",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test/*.js --cov"
+  },
+  "dependencies": {
+    "bindings": "~1.2.1",
+    "nan": "~2.0.9"
+  },
+  "devDependencies": {
+    "node-gyp": "~3.0.3",
+    "tap": "~2.0.0"
+  },
+  "license": "MIT",
+  "author": "Evan Lucas <evanlucas@me.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/evanlucas/v8is"
+  },
+  "homepage": "https://github.com/evanlucas/v8is",
+  "bugs": {
+    "url": "https://github.com/evanlucas/v8is/issues"
+  }
+}
