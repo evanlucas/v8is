@@ -185,6 +185,51 @@ test('isMap', function(t) {
   t.end()
 })
 
+test('isSet', function(t) {
+  t.strictEqual(v8is.isSet(new Set()), true)
+  t.strictEqual(v8is.isSet(new Map()), false)
+  t.strictEqual(v8is.isSet(new Set().entries()), false)
+  t.end()
+})
+
+test('isMapIterator', function(t) {
+  t.strictEqual(v8is.isMapIterator(new Map().keys()), true)
+  t.strictEqual(v8is.isMapIterator(new Map()), false)
+  t.strictEqual(v8is.isMapIterator(new Set().keys()), false)
+  t.end()
+})
+
+test('isSetIterator', function(t) {
+  t.strictEqual(v8is.isSetIterator(new Set().keys()), true)
+  t.strictEqual(v8is.isSetIterator(new Set()), false)
+  t.strictEqual(v8is.isSetIterator(new Map().keys()), false)
+  t.end()
+})
+
+test('isWeakMap', function(t) {
+  t.strictEqual(v8is.isWeakMap(new Map()), false)
+  t.strictEqual(v8is.isWeakMap(new WeakMap()), true)
+  t.end()
+})
+
+test('isWeakSet', function(t) {
+  t.strictEqual(v8is.isWeakSet(new Set()), false)
+  t.strictEqual(v8is.isWeakSet(new WeakSet()), true)
+  t.end()
+})
+
+test('isArrayBuffer', function(t) {
+  t.strictEqual(v8is.isArrayBuffer(new ArrayBuffer([])), true)
+  t.strictEqual(v8is.isArrayBuffer([]), false)
+  t.end()
+})
+
+test('isArrayBufferView', function(t) {
+  t.strictEqual(v8is.isArrayBufferView(new Uint8Array([])), true)
+  t.strictEqual(v8is.isArrayBufferView([]), false)
+  t.end()
+})
+
 test('required arguments', function(t) {
   const funcs = getFunctions()
   funcs.forEach(function(func) {
