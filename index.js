@@ -240,6 +240,13 @@ exports.isUint16Array = function isUint16Array(obj) {
   return binding.isUint16Array(obj)
 }
 
+exports.isInt16Array = function isInt16Array(obj) {
+  if (arguments.length < 1)
+    throw new Error('argument is required')
+
+  return binding.isInt16Array(obj)
+}
+
 exports.isInt32Array = function isInt32Array(obj) {
   if (arguments.length < 1)
     throw new Error('argument is required')
