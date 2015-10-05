@@ -17,6 +17,52 @@ $ npm install v8is
 $ npm test
 ```
 
+## API
+
+The following functions are available:
+
+- `isUndefined`
+- `isNull`
+- `isTrue`
+- `isFalse`
+- `isString`
+- `isSymbol`
+- `isFunction`
+- `isArray`
+- `isObject`
+- `isBoolean`
+- `isNumber`
+- `isInt32`
+- `isUint32`
+- `isDate`
+- `isArgumentsObject`
+- `isBooleanObject`
+- `isNumberObject`
+- `isStringObject`
+- `isRegExp`
+- `isGeneratorFunction`
+- `isGeneratorObject`
+- `isPromise`
+  - only works for native promises
+- `isMap`
+- `isSet`
+- `isMapIterator`
+- `isSetIterator`
+- `isWeakMap`
+- `isWeakSet`
+- `isArrayBuffer`
+- `isArrayBufferView`
+- `isTypedArray`
+- `isUint8Array`
+- `isInt8Array`
+- `isUint16Array`
+- `isInt16Array`
+- `isUint32Array`
+- `isInt32Array`
+- `isFloat32Array`
+- `isFloat64Array`
+- `isDataView`
+
 ## Author
 
 Evan Lucas
