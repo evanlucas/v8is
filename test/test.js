@@ -147,6 +147,44 @@ test('isStringObject', function(t) {
   t.end()
 })
 
+test('isRegExp', function(t) {
+  t.strictEqual(v8is.isRegExp(/123/), true)
+  t.strictEqual(v8is.isRegExp(new RegExp('123')), true)
+  t.strictEqual(v8is.isRegExp('123'), false)
+  t.end()
+})
+
+test('isGeneratorFunction', function(t) {
+  function *gen() {}
+  t.strictEqual(v8is.isGeneratorFunction(gen), true)
+  t.strictEqual(v8is.isGeneratorFunction(function() {}), false)
+  t.end()
+})
+
+test('isGeneratorObject', function(t) {
+  function *gen() {
+    yield 1
+    yield 2
+  }
+  t.strictEqual(v8is.isGeneratorObject(gen()), true)
+  t.strictEqual(v8is.isGeneratorObject(gen), false)
+  t.end()
+})
+
+test('isPromise', function(t) {
+  var a = new Promise(function() {}, function() {})
+  t.strictEqual(v8is.isPromise(a), true)
+  t.strictEqual(v8is.isPromise(true), false)
+  t.end()
+})
+
+test('isMap', function(t) {
+  t.strictEqual(v8is.isMap(new Map()), true)
+  t.strictEqual(v8is.isMap(new Set()), false)
+  t.strictEqual(v8is.isMap(new Map().keys()), false)
+  t.end()
+})
+
 test('required arguments', function(t) {
   const funcs = getFunctions()
   funcs.forEach(function(func) {
