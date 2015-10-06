@@ -3,7 +3,9 @@ env:
   - CXX="g++-4.8"
 node_js:
   - "4"
-  - "iojs-3"
+  - "iojs"
+  - "iojs-2"
+  - "iojs-1"
 sudo: false
 addons:
   apt:
