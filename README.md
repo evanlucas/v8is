@@ -27,6 +27,8 @@ const v8is = require('v8is')
 
 The following functions are available:
 
+**NOTE: each function requires 1 argument. An error will be thrown otherwise**
+
 ### `isUndefined(arg)`
 
 ```js
