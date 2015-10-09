@@ -110,6 +110,8 @@ v8is.isTrue(false) // => false
 
 ### `isUint8Array(arg)`
 
+### `isUint8ClampedArray(arg)`
+
 ### `isInt8Array(arg)`
 
 ### `isUint16Array(arg)`

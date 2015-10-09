@@ -242,6 +242,12 @@ test('isUint8Array', function(t) {
   t.end()
 })
 
+test('isUint8ClampedArray', function(t) {
+  t.strictEqual(v8is.isUint8ClampedArray(new Uint8ClampedArray([1])), true)
+  t.strictEqual(v8is.isUint8ClampedArray([]), false)
+  t.end()
+})
+
 test('isInt8Array', function(t) {
   t.strictEqual(v8is.isInt8Array(new Int8Array([])), true)
   t.strictEqual(v8is.isInt8Array(new Uint8Array([])), false)

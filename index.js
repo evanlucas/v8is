@@ -226,6 +226,13 @@ exports.isUint8Array = function isUint8Array(obj) {
   return binding.isUint8Array(obj)
 }
 
+exports.isUint8ClampedArray = function isUint8ClampedArray(obj) {
+  if (arguments.length < 1)
+    throw new Error('argument is required')
+
+  return binding.isUint8ClampedArray(obj)
+}
+
 exports.isInt8Array = function isInt8Array(obj) {
   if (arguments.length < 1)
     throw new Error('argument is required')

@@ -51,6 +51,7 @@ using Nan::Set;
   V(IsArrayBufferView, isArrayBufferView)     \
   V(IsTypedArray, isTypedArray)               \
   V(IsUint8Array, isUint8Array)               \
+  V(IsUint8ClampedArray, isUint8ClampedArray) \
   V(IsInt8Array, isInt8Array)                 \
   V(IsUint16Array, isUint16Array)             \
   V(IsInt16Array, isInt16Array)               \
