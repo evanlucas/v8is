@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "node-gyp": "~3.0.3",
-    "tap": "~2.0.0"
+    "tap": "~2.2.0"
   },
   "license": "MIT",
   "author": "Evan Lucas <evanlucas@me.com>",
