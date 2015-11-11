@@ -233,12 +233,14 @@ test('isArrayBufferView', function(t) {
 test('isTypedArray', function(t) {
   t.strictEqual(v8is.isTypedArray(new Uint8Array([])), true)
   t.strictEqual(v8is.isTypedArray([]), false)
+  t.strictEqual(v8is.isTypedArray(new Buffer(0)), true)
   t.end()
 })
 
 test('isUint8Array', function(t) {
   t.strictEqual(v8is.isUint8Array(new Uint8Array([])), true)
   t.strictEqual(v8is.isUint8Array([]), false)
+  t.strictEqual(v8is.isUint8Array(new Buffer(0)), true)
   t.end()
 })
 
