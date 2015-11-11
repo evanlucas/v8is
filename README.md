@@ -5,6 +5,9 @@
 
 Type checking on all sorts of values/objects
 
+*Note: `v8is` is only supported on Node.js v4+.*
+
+
 ## Install
 
 ```bash
