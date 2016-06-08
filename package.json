@@ -1,6 +1,6 @@
 {
   "name": "v8is",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Type checking on all sorts of values/objects",
   "main": "index.js",
   "scripts": {
