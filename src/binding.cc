@@ -62,8 +62,14 @@ using Nan::Set;
   V(IsFloat64Array, isFloat64Array)           \
   V(IsDataView, isDataView)
 
+#define NODE_V6_METHOD_NAMES(V)               \
+  V(IsProxy, isProxy)
+
 #define V(Name, S) METHOD(S, Name)
   METHOD_NAMES(V)
+#if NODE_MODULE_VERSION >= NODE_6_0_MODULE_VERSION
+  NODE_V6_METHOD_NAMES(V)
+#endif
 #undef V
 
 #define DECLARE(Name, S)                                           \
@@ -73,6 +79,9 @@ using Nan::Set;
 NAN_MODULE_INIT(Init) {
 #define V(Name, S) DECLARE(Name, S)
   METHOD_NAMES(V)
+#if NODE_MODULE_VERSION >= NODE_6_0_MODULE_VERSION
+  NODE_V6_METHOD_NAMES(V)
+#endif
 #undef V
 }
 

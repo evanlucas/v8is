@@ -135,6 +135,19 @@ Alias to `isNativeError`
 
 ### `isDataView(arg)`
 
+### `isProxy(arg)`
+
+Only supported on Node.js v6+. One should check before trying to use this.
+
+```js
+'use strict'
+
+const is = require('v8is')
+if (is.isProxy) {
+  // ...
+}
+```
+
 ## Author
 
 Evan Lucas

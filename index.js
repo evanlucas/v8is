@@ -296,3 +296,12 @@ exports.isDataView = function isDataView(obj) {
 
   return binding.isDataView(obj)
 }
+
+if (binding.isProxy) {
+  exports.isProxy = function isProxy(obj) {
+    if (arguments.length < 1)
+      throw new Error('argument is required')
+
+    return binding.isProxy(obj)
+  }
+}

@@ -315,6 +315,16 @@ test('isDataView', function(t) {
   t.end()
 })
 
+if (v8is.isProxy) {
+  test('isProxy', (t) => {
+    t.equal(v8is.isProxy({}), false)
+    const handler = {}
+    const p = new Proxy({}, handler)
+    t.equal(v8is.isProxy(p), true)
+    t.end()
+  })
+}
+
 test('required arguments', function(t) {
   const funcs = getFunctions()
   funcs.forEach(function(func) {
