@@ -83,6 +83,10 @@ v8is.isTrue(false) // => false
 
 ### `isStringObject(arg)`
 
+### `isError(arg)`
+
+Alias to `isNativeError`
+
 ### `isRegExp(arg)`
 
 ### `isGeneratorFunction(arg)`

@@ -147,6 +147,18 @@ test('isStringObject', function(t) {
   t.end()
 })
 
+test('isError', (t) => {
+  t.equal(v8is.isError(new Error()), true)
+  t.equal(v8is.isError(true), false)
+  class E extends Error {
+    constructor(m) {
+      super(m)
+    }
+  }
+  t.equal(v8is.isError(new E()), true)
+  t.end()
+})
+
 test('isRegExp', function(t) {
   t.strictEqual(v8is.isRegExp(/123/), true)
   t.strictEqual(v8is.isRegExp(new RegExp('123')), true)

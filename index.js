@@ -128,6 +128,14 @@ exports.isStringObject = function isStringObject(obj) {
   return binding.isStringObject(obj)
 }
 
+exports.isNativeError = function isNativeError(obj) {
+  if (arguments.length < 1)
+    throw new Error('argument is required')
+
+  return binding.isNativeError(obj)
+}
+exports.isError = exports.isNativeError
+
 exports.isRegExp = function isRegExp(obj) {
   if (arguments.length < 1)
     throw new Error('argument is required')
