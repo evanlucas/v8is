@@ -60,15 +60,28 @@ using Nan::Set;
   V(IsInt32Array, isInt32Array)               \
   V(IsFloat32Array, isFloat32Array)           \
   V(IsFloat64Array, isFloat64Array)           \
-  V(IsDataView, isDataView)
+  V(IsDataView, isDataView)                   \
+  V(IsSharedArrayBuffer, isSharedArrayBuffer)
 
-#define NODE_V6_METHOD_NAMES(V)               \
+#define V8_4_9_METHOD_NAMES(V)                \
   V(IsProxy, isProxy)
+
+#define V8_5_4_METHOD_NAMES(V)                \
+  V(IsWebAssemblyCompiledModule, isWebAssemblyCompiledModule)
+
+#define V8_5_5_METHOD_NAMES(V)                \
+  V(IsAsyncFunction, isAsyncFunction)
 
 #define V(Name, S) METHOD(S, Name)
   METHOD_NAMES(V)
-#if NODE_MODULE_VERSION >= NODE_6_0_MODULE_VERSION
-  NODE_V6_METHOD_NAMES(V)
+#if V8_MAJOR_VERSION == 4 && V8_MINOR_VERSION >= 9 || V8_MAJOR_VERSION > 4
+  V8_4_9_METHOD_NAMES(V)
+#endif
+#if V8_MAJOR_VERSION == 5 && V8_MINOR_VERSION >= 4 || V8_MAJOR_VERSION > 5
+  V8_5_4_METHOD_NAMES(V)
+#endif
+#if V8_MAJOR_VERSION == 5 && V8_MINOR_VERSION >= 5 || V8_MAJOR_VERSION > 5
+  V8_5_5_METHOD_NAMES(V)
 #endif
 #undef V
 
@@ -79,8 +92,14 @@ using Nan::Set;
 NAN_MODULE_INIT(Init) {
 #define V(Name, S) DECLARE(Name, S)
   METHOD_NAMES(V)
-#if NODE_MODULE_VERSION >= NODE_6_0_MODULE_VERSION
-  NODE_V6_METHOD_NAMES(V)
+#if V8_MAJOR_VERSION == 4 && V8_MINOR_VERSION >= 9 || V8_MAJOR_VERSION > 4
+  V8_4_9_METHOD_NAMES(V)
+#endif
+#if V8_MAJOR_VERSION == 5 && V8_MINOR_VERSION >= 4 || V8_MAJOR_VERSION > 5
+  V8_5_4_METHOD_NAMES(V)
+#endif
+#if V8_MAJOR_VERSION == 5 && V8_MINOR_VERSION >= 5 || V8_MAJOR_VERSION > 5
+  V8_5_5_METHOD_NAMES(V)
 #endif
 #undef V
 }

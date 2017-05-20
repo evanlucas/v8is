@@ -135,6 +135,8 @@ Alias to `isNativeError`
 
 ### `isDataView(arg)`
 
+### `isSharedArrayBuffer(arg)`
+
 ### `isProxy(arg)`
 
 Only supported on Node.js v6+. One should check before trying to use this.
@@ -147,6 +149,14 @@ if (is.isProxy) {
   // ...
 }
 ```
+
+### `isWebAssemblyCompiledModule(arg)`
+
+Only supported on Node.js v7.0+. One should check before trying to use this.
+
+### `isAsyncFunction(arg)`
+
+Only supported on Node.js v7.6+. One should check before trying to use this.
 
 ## Author
 
