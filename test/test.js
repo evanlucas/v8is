@@ -1,5 +1,6 @@
 'use strict'
 
+const fs = require('fs')
 const test = require('tap').test
 const v8is = require('../')
 const keys = Object.keys(v8is)
@@ -321,6 +322,51 @@ if (v8is.isProxy) {
     const handler = {}
     const p = new Proxy({}, handler)
     t.equal(v8is.isProxy(p), true)
+    t.end()
+  })
+}
+
+if (global.SharedArrayBuffer) {
+  test('isSharedArrayBuffer', (t) => {
+    t.strictEqual(v8is.isSharedArrayBuffer(new SharedArrayBuffer(0)), true)
+    t.strictEqual(v8is.isSharedArrayBuffer([]), false)
+    t.end()
+  })
+}
+
+if (v8is.isWebAssemblyCompiledModule) {
+  test('isWebAssemblyCompiledModule', (t) => {
+    t.strictEqual(v8is.isWebAssemblyCompiledModule({}), false)
+    if (global.WebAssembly && WebAssembly.Module) {
+      const buf = fs.readFileSync(__dirname + "/sample.wasm")
+      let module = null
+      try {
+        module = new WebAssembly.Module(buf)
+      } catch (err) {
+        // Compilation may fail due to the unstable nature of WebAssembly
+        // at this moment.
+      }
+      if (module !== null) {
+        t.strictEqual(v8is.isWebAssemblyCompiledModule(module), true)
+      }
+    }
+    t.end()
+  })
+}
+
+if (v8is.isAsyncFunction) {
+  test('isAsyncFunction', (t) => {
+    t.equal(v8is.isAsyncFunction(1), false)
+    t.equal(v8is.isAsyncFunction({}), false)
+    t.equal(v8is.isAsyncFunction(() => {}), false)
+
+    let func = null
+    try {
+      func = eval("(async function() {})")
+    } catch (err) {}
+    if (func !== null) {
+      t.equal(v8is.isAsyncFunction(func), true)
+    }
     t.end()
   })
 }

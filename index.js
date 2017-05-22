@@ -297,11 +297,36 @@ exports.isDataView = function isDataView(obj) {
   return binding.isDataView(obj)
 }
 
+exports.isSharedArrayBuffer = function isSharedArrayBuffer(obj) {
+  if (arguments.length < 1)
+    throw new Error('argument is required')
+
+  return binding.isSharedArrayBuffer(obj)
+}
+
 if (binding.isProxy) {
   exports.isProxy = function isProxy(obj) {
     if (arguments.length < 1)
       throw new Error('argument is required')
 
     return binding.isProxy(obj)
+  }
+}
+
+if (binding.isWebAssemblyCompiledModule) {
+  exports.isWebAssemblyCompiledModule = function isWebAssemblyCompiledModule(obj) {
+    if (arguments.length < 1)
+      throw new Error('argument is required')
+
+    return binding.isWebAssemblyCompiledModule(obj)
+  }
+}
+
+if (binding.isAsyncFunction) {
+  exports.isAsyncFunction = function isAsyncFunction(obj) {
+    if (arguments.length < 1)
+      throw new Error('argument is required')
+
+    return binding.isAsyncFunction(obj)
   }
 }

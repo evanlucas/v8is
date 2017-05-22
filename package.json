@@ -7,12 +7,12 @@
     "test": "tap test/*.js --cov"
   },
   "dependencies": {
-    "bindings": "~1.2.1",
-    "nan": "~2.3.5"
+    "bindings": "^1.2.1",
+    "nan": "^2.6.2"
   },
   "devDependencies": {
-    "node-gyp": "~3.0.3",
-    "tap": "~2.2.0"
+    "node-gyp": "^3.6.1",
+    "tap": "^10.3.2"
   },
   "license": "MIT",
   "author": "Evan Lucas <evanlucas@me.com>",
